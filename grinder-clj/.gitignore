@@ -9,3 +9,7 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
+# A Grinder worker puts a lot of data here:
+log/
+# The default file name for stats saved from the console:
+grinder-console.data
