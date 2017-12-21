@@ -1,17 +1,24 @@
-https://sourceforge.net/p/grinder/mailman/message/31038768/
+The Author advises
+
+    https://sourceforge.net/p/grinder/mailman/message/31038768/
+
+to skip the tests initially
 
     mvn -DskipTests package
 
-The HTTP module re-uses test utilities belonging to the core module. Try
-using -DskipTests instead. This will compile the tests, but not execute
-them. See
-http://maven.apache.org/surefire/maven-surefire-plugin/examples/skipping-test.html
+The HTTP module re-uses test utilities belonging to the core
+module. Try using -DskipTests instead.  This will compile the tests,
+but not execute them.  See [dead
+link](http://maven.apache.org/surefire/maven-surefire-plugin/examples/skipping-test.html).
 
     mvn -DskipTests install
 
-By now
+With grider JAR installed into your local Maven directory ~/.m2/ you
+should be able to
 
     cd grinder-clj
     lein deps
 
-should find the grinder artifacts.
+and Leiningen will find the artifacts.  Try to build and run the
+Leiningen project.  For details see the Clojure
+[project](./grinder-clj).
