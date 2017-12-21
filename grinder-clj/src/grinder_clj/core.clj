@@ -1,10 +1,10 @@
 (ns grinder-clj.core
-  (:import [net.grinder.Console]))
+  (:import [net.grinder Console Grinder]))
 
 (defn -main
-  "I don't do a whole lot."
-  [& args]
-  (println "Hello, World!")
+  "Let the leiningen manage the class path issues ..."
+  [cmd & args]
+  (println "grinder-clj.core/-main: entered")
   ;;
   ;; Java class main()  takes a string array which is  not the same as
   ;; Clojure vector  of strings. You  dont need to supply  anything to
@@ -13,4 +13,7 @@
   ;; [1] http://grinder.sourceforge.net/g3/getting-started.html
   ;;
   (let [string-array (into-array String args)]
-    (net.grinder.Console/main string-array)))
+    (case cmd
+      "Console" (net.grinder.Console/main string-array)
+      "Grinder" (net.grinder.Grinder/main string-array)
+      (println "Valid commands: Console, Grinder"))))
