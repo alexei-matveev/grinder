@@ -1,1 +1,19 @@
+#
+# The uberjar may only contain one resource named
+#
+#     META-INF/net.grinder.console
+#
+# choosing either of two
+#
+#     net.grinder.console.swingui.ConsoleUI
+#     net.grinder.console.service.Bootstrap
+#
+# Compare
+#
+#     grinder-swing-console/src/main/resources/META-INF/net.grinder.console
+#     grinder-console-service/resources/META-INF/net.grinder.console
+#
+# To choose dererministically, we have created the third identically named
+# resource --- this file with the preference for ..
+#
 net.grinder.console.swingui.ConsoleUI
