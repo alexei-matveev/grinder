@@ -2,8 +2,10 @@
 
 Forked from [Sourceforge](https://sourceforge.net/p/grinder/) to try
 wrapping the JARs into a
-[Leiningen](https://github.com/technomancy/leiningen).  Leiningen
-handles dependencies, class path, and Uberjar build for you.
+[Leiningen](https://github.com/technomancy/leiningen) project.
+Leiningen handles dependencies, class path, and Uberjar build for you.
+
+### Qickstart build instructions
 
 The Author
 [advises](https://sourceforge.net/p/grinder/mailman/message/31038768/)
