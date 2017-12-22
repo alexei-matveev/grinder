@@ -16,9 +16,13 @@ there is a REST endpoint of the [Console
 service](http://grinder.sourceforge.net/g3/console-service.html) which
 is, BTW, also a Clojue [subproject](../grinder-console-service).
 
-FIXME:  On a  headless Linux  VM  `lein run  Console` shows  exception
-saying  DISPLAY  is not  set  while  `lein -jar  ${uber}.jar  Console`
-continues to start the console service as if one specified `-headless`
+### Choosing Grinder UI
+
+By default the Grinder Console starts the Swing UI.
+
+On  a headless  Linux VM  `lein  run Console`  shows exception  saying
+DISPLAY is  not set while  `lein -jar ${uber}.jar Console`  appears to
+start  the console  (rest)  service as  if  one specified  `-headless`
 option. Same is observed behaviour if you launch the class directly:
 
     java -classpath ${uber}.jar net.grinder.Console
@@ -51,10 +55,16 @@ listed respectively in two identically named resource files:
     ../grinder-swing-console/src/main/resources/META-INF/net.grinder.console
     ../grinder-console-service/resources/META-INF/net.grinder.console
 
-The uberjar will only contain one  resource file. It happens to be the
-"Bootstrap"  implementation,  possibly  unfinished. If  you  edit  the
-uberjar with vim replacing Bootstrap  implementation with the Swing UI
-then running the uberjar as above does launch the Swing UI.
+The uberjar  will only contain one  resource file named like  that. It
+happens to  be the  Bootstrap implementation, possibly  unfinished. If
+you edit the uberjar with  vim replacing Bootstrap implementation with
+the Swing UI  then running the uberjar as above  does launch the Swing
+UI. To make that deterministic we put a third identically named resource
+into
+
+    ./resources/META-INF/net.grinder.console
+
+choosing the Swing UI option.
 
 ## License
 
