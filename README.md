@@ -1,6 +1,9 @@
 ## The Grinder
 
-Forked from [Sourceforge](https://sourceforge.net/p/grinder/).
+Forked from [Sourceforge](https://sourceforge.net/p/grinder/) to try
+wrapping the JARs into a
+[Leiningen](https://github.com/technomancy/leiningen).  Leiningen
+handles dependencies, class path, and Uberjar build for you.
 
 The Author
 [advises](https://sourceforge.net/p/grinder/mailman/message/31038768/)
