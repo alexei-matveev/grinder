@@ -23,6 +23,10 @@ option. Same behaviour if you launch the class directly:
 
     java -classpath ${uber}.jar net.grinder.Console
 
+There is some non-trivial logic in ConsoleFoundation.java that
+"dynamically" loads UI versions and if nothing works falls back to
+TextUI.
+
 ## License
 
 Copyright © 2017 Alexei Matveev <alexei.matveev@gmail.com>
