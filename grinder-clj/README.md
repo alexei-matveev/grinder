@@ -35,6 +35,27 @@ you will  get the "No X11  DISPLAY variable was set"  error.  There is
 some  non-trivial logic  in ConsoleFoundation.java  that "dynamically"
 loads UI versions and if nothing works falls back to TextUI.
 
+This logic appears to consult the class name in the Java resource
+named:
+
+    META-INF/net.grinder.console
+
+and use that as the UI implementation. There appears to be at least
+two implementations:
+
+    net.grinder.console.swingui.ConsoleUI
+    net.grinder.console.service.Bootstrap
+
+listed respectively in two identically named resource files:
+
+    ../grinder-swing-console/src/main/resources/META-INF/net.grinder.console
+    ../grinder-console-service/resources/META-INF/net.grinder.console
+
+The uberjar will only contain one  resource file. It happens to be the
+"Bootstrap"  implementation,  possibly  unfinished. If  you  edit  the
+uberjar with vim replacing Bootstrap  implementation with the Swing UI
+then running the uberjar as above does launch the Swing UI.
+
 ## License
 
 Copyright © 2017 Alexei Matveev <alexei.matveev@gmail.com>
