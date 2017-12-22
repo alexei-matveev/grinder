@@ -20,13 +20,20 @@ to skip the tests initially
 
     mvn -DskipTests install
 
-With grider JAR installed into your local Maven directory ~/.m2/ you
+With grinder JAR installed into your local Maven directory ~/.m2/ you
 should be able to
 
     cd grinder-clj
     lein deps
-    lein deps :tree
 
 and Leiningen will find the artifacts.  Then build and run the
 Leiningen project.  For details see the Clojure
 [project](./grinder-clj).
+
+FIXME: there is a ref to a very old version of clojure somewhere. I
+get this on the first `lein deps`:
+
+    Retrieving org/clojure/clojure/1.3.0-alpha5/clojure-1.3.0-alpha5.pom from central
+
+Also `lein deps :tree` detects quite a few "possibly confusing
+dependencies".
