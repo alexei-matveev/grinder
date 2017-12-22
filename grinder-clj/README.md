@@ -5,12 +5,23 @@ uberjar build.
 
 ## Usage
 
-   lein run Console
+   lein run Console [-headless]
    lein run Grinder
 
-Console needs to be able to listen to a few
-[ports](http://grinder.sourceforge.net/g3/console-service.html) which
-may be problematic on Windows in corporate networks.
+Console needs to be able to listen to a few ports. The Console listens
+by default to 0.0.0.0:6372, this is where the agents will need to
+[connect
+to](http://grinder.sourceforge.net/g3/getting-started.html). At :6373
+there is a REST endpoint of the [Console
+service](http://grinder.sourceforge.net/g3/console-service.html) which
+is, BTW, also a Clojue [subproject](../grinder-console-service).
+
+FIXME: I think strting console from uberjar may occasinally suffer
+from [silent
+exceptions](https://stuartsierra.com/2015/05/27/clojure-uncaught-exceptions).
+On a headless Linux VM `lein run Console` shows exception sayfin
+DISPLAY is not set while `lein -jar uber.jar Console` continues to
+start the console service.
 
 ## License
 
