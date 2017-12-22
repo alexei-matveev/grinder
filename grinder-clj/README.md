@@ -23,7 +23,7 @@ By default the Grinder Console starts the Swing UI.
 On  a headless  Linux VM  `lein  run Console`  shows exception  saying
 DISPLAY is  not set while  `lein -jar ${uber}.jar Console`  appears to
 start  the console  (rest)  service as  if  one specified  `-headless`
-option. Same is observed behaviour if you launch the class directly:
+option. Same behaviour is observed if you launch the class directly:
 
     java -classpath ${uber}.jar net.grinder.Console
 
@@ -35,17 +35,17 @@ or like this
 
     java -classpath $(lein classpath) grinder_clj.core Console
 
-you will  get the "No X11  DISPLAY variable was set"  error.  There is
-some  non-trivial logic  in ConsoleFoundation.java  that "dynamically"
-loads UI versions and if nothing works falls back to TextUI.
+The  Console would  (try  to)  launch the  Swing  UI.   There is  some
+non-trivial logic  in ConsoleFoundation.java that  "dynamically" loads
+UI versions and if nothing works falls back to TextUI.
 
 This logic appears to consult the class name in the Java resource
 named:
 
     META-INF/net.grinder.console
 
-and use that as the UI implementation. There appears to be at least
-two implementations:
+and use that as the UI implementation. There appear to be at least two
+implementations:
 
     net.grinder.console.swingui.ConsoleUI
     net.grinder.console.service.Bootstrap
@@ -55,12 +55,12 @@ listed respectively in two identically named resource files:
     ../grinder-swing-console/src/main/resources/META-INF/net.grinder.console
     ../grinder-console-service/resources/META-INF/net.grinder.console
 
-The uberjar  will only contain one  resource file named like  that. It
-happens to  be the  Bootstrap implementation, possibly  unfinished. If
-you edit the uberjar with  vim replacing Bootstrap implementation with
-the Swing UI  then running the uberjar as above  does launch the Swing
-UI. To make that deterministic we put a third identically named resource
-into
+The uberjar,  on the other hand,  will only contain one  resource file
+named  like  that. It  happens  to  be the  Bootstrap  implementation,
+possibly  unfinished.  If  you  edit the  uberjar  with vim  replacing
+Bootstrap implementation with  the Swing UI, then  running the uberjar
+as above does launch the Swing  UI.  To make that deterministic we put
+a third identically named resource into
 
     ./resources/META-INF/net.grinder.console
 
