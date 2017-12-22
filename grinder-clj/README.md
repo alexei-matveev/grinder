@@ -16,12 +16,12 @@ there is a REST endpoint of the [Console
 service](http://grinder.sourceforge.net/g3/console-service.html) which
 is, BTW, also a Clojue [subproject](../grinder-console-service).
 
-FIXME: I think strting console from uberjar may occasinally suffer
-from [silent
-exceptions](https://stuartsierra.com/2015/05/27/clojure-uncaught-exceptions).
-On a headless Linux VM `lein run Console` shows exception sayfin
-DISPLAY is not set while `lein -jar uber.jar Console` continues to
-start the console service as if one specified `-headless` option.
+FIXME: On a headless Linux VM `lein run Console` shows exception
+saying DISPLAY is not set while `lein -jar ${uber}.jar Console`
+continues to start the console service as if one specified `-headless`
+option. Same behaviour if you launch the class directly:
+
+    java -classpath ${uber}.jar net.grinder.Console
 
 ## License
 
