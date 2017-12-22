@@ -25,6 +25,10 @@ option. Same is observed behaviour if you launch the class directly:
 
 On the other hand if you start it like this:
 
+    java -classpath $(lein classpath) net.grinder.Console
+
+or like this
+
     java -classpath $(lein classpath) grinder_clj.core Console
 
 you will  get the "No X11  DISPLAY variable was set"  error.  There is
