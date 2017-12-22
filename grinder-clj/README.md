@@ -5,8 +5,8 @@ uberjar build.
 
 ## Usage
 
-   lein run Console [-headless]
-   lein run Grinder
+    lein run Console [-headless]
+    lein run Grinder
 
 Console needs to be able to listen to a few ports. The Console listens
 by default to 0.0.0.0:6372, this is where the agents will need to
