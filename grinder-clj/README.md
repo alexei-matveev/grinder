@@ -16,16 +16,20 @@ there is a REST endpoint of the [Console
 service](http://grinder.sourceforge.net/g3/console-service.html) which
 is, BTW, also a Clojue [subproject](../grinder-console-service).
 
-FIXME: On a headless Linux VM `lein run Console` shows exception
-saying DISPLAY is not set while `lein -jar ${uber}.jar Console`
+FIXME:  On a  headless Linux  VM  `lein run  Console` shows  exception
+saying  DISPLAY  is not  set  while  `lein -jar  ${uber}.jar  Console`
 continues to start the console service as if one specified `-headless`
-option. Same behaviour if you launch the class directly:
+option. Same is observed behaviour if you launch the class directly:
 
     java -classpath ${uber}.jar net.grinder.Console
 
-There is some non-trivial logic in ConsoleFoundation.java that
-"dynamically" loads UI versions and if nothing works falls back to
-TextUI.
+On the other hand if you start it like this:
+
+    java -classpath $(lein classpath) grinder_clj.core Console
+
+you will  get the "No X11  DISPLAY variable was set"  error.  There is
+some  non-trivial logic  in ConsoleFoundation.java  that "dynamically"
+loads UI versions and if nothing works falls back to TextUI.
 
 ## License
 
