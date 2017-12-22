@@ -3,12 +3,12 @@
   :description "Web interface and REST API to The Grinder console."
   :url "http://grinder.sourceforge.net"
   :dependencies [[cheshire "4.0.0"]
-                 [clj-stacktrace "0.2.5"]
+                 [clj-stacktrace "0.2.7"]
                  [compojure "1.1.3"]
                  [http-kit "2.0.1"]
                  [hiccup "1.0.2"]
                  [net.sf.grinder/grinder-core "3.12-SNAPSHOT"]
-                 [org.clojure/clojure "1.4.0"]
+                 [org.clojure/clojure "1.8.0"]
                  [org.clojure/tools.logging "0.2.3"]
                  [ring/ring-core "1.1.6"
                   ; we don't use multipart-params, cookies, sessions.
