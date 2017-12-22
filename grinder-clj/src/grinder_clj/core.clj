@@ -1,5 +1,4 @@
 (ns grinder-clj.core
-  (:require [clojure.tools.logging :as log])
   (:import [net.grinder Console Grinder])
   (:gen-class))
 
@@ -7,17 +6,6 @@
   "Let the leiningen manage the class path issues ..."
   [cmd & args]
   (println "grinder-clj.core/-main: entered")
-
-  ;;
-  ;; Exceptions in separate threads a silent by default [1], that is
-  ;; why.
-  ;;
-  ;; [1] https://stuartsierra.com/2015/05/27/clojure-uncaught-exceptions
-  ;;
-  (Thread/setDefaultUncaughtExceptionHandler
-   (reify Thread$UncaughtExceptionHandler
-     (uncaughtException [_ thread ex]
-       (log/error ex "Uncaught exception on" (.getName thread)))))
 
   ;;
   ;; Java class main()  takes a string array which is  not the same as
