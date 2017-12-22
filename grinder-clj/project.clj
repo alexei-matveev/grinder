@@ -5,4 +5,6 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [net.sf.grinder/grinder "3.12-SNAPSHOT"]]
-  :main grinder-clj.core)
+  :main grinder-clj.core
+  ;; Implicit AOT of main is deprecated:
+  :aot [grinder-clj.core])

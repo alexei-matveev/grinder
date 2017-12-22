@@ -1,5 +1,6 @@
 (ns grinder-clj.core
-  (:import [net.grinder Console Grinder]))
+  (:import [net.grinder Console Grinder])
+  (:gen-class))
 
 (defn -main
   "Let the leiningen manage the class path issues ..."
