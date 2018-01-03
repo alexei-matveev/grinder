@@ -1,9 +1,13 @@
 ## The Grinder
 
 Forked from [Sourceforge](https://sourceforge.net/p/grinder/) to try
-wrapping the JARs into a
+wrapping JARs into a
 [Leiningen](https://github.com/technomancy/leiningen) project.
 Leiningen handles dependencies, class path, and Uberjar build for you.
+
+The original author appears to have [moved
+on](https://sourceforge.net/p/grinder/mailman/message/34940533/) to
+other projects.
 
 ### Qickstart build instructions
 
