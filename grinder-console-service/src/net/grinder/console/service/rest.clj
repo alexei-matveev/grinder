@@ -20,6 +20,12 @@
 ; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ; OF THE POSSIBILITY OF SUCH DAMAGE.
 
+;;
+;; Reloading this namespace  in Cider may or may not  be sufficient to
+;; change the  behaviour live. You  may want to (re)start  the Console
+;; occasionally in  play.clj for the  changes to take the  effect. See
+;; comments for the "version" endpoint.
+;;
 (ns net.grinder.console.service.rest
   "Compojure application that provides the console REST API."
   (:use [compojure
@@ -90,6 +96,12 @@
     (POST "/save" [] (to-body (properties/save p)))
     ))
 
+;; If you inline  this function into "create-app"  then reloading this
+;; namespace alone will not change the behaviour of the endpoint.
+(defn- version []
+  (GrinderBuild/getName))
+
+;; Invoked in app.clj to create REST endpoints:
 (defn create-app
   "Create the Ring routes, given a map of the various console components."
   [{:keys [process-control
@@ -99,7 +111,7 @@
            file-distribution]}]
   (->
     (routes
-      (GET "/version" [] (to-body (GrinderBuild/getName)))
+      (GET "/version" [] (to-body (version)))
       (context "/agents" [] (agents-routes process-control properties))
       (context "/files" [] (files-routes file-distribution))
       (context "/properties" [] (properties-routes properties))

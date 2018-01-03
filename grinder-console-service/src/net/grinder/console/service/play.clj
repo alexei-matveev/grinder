@@ -43,10 +43,14 @@
   (if-let [stopper-fn @stopper]
     (stopper-fn)))
 
-;; Execute (start) and point  your browser to http://localhost:6373/ui
+;;
+;; Execute "start" and point  your browser to http://localhost:6373/ui
 ;; or to http://localhost:6373/version to  verify. The run() method of
 ;; the  ConsoleFoundation  does  not  return anything,  so  the  value
-;; computed by the future is not very usefull.
+;; computed  by the  future is  not very  usefull.  Note  that if  the
+;; console is  already running it is  stopped first. There is  no need
+;; for separate "restart" function.
+;;
 (defn start []
   ;; This should be idempotent:
   (stop)
@@ -69,5 +73,3 @@
       (try
         (.run cf)
         (catch Exception e (log/error e "ConsoleFoundation failed"))))))
-
-
