@@ -8,6 +8,9 @@
                  [http-kit "2.0.1"]
                  [hiccup "1.0.2"]
                  [net.sf.grinder/grinder-core "3.12-SNAPSHOT"]
+                 ;; This is actually another Clojure/Leiningen
+                 ;; project. Used in e.g. play.clj:
+                 [net.sf.grinder/grinder-translation "3.12-SNAPSHOT"]
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/tools.logging "0.2.3"]
                  [ring/ring-core "1.1.6"

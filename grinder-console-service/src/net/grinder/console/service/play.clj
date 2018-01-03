@@ -22,11 +22,13 @@
 (ns net.grinder.console.service.play
   "Start and stop the console from the REPL."
   (:require
-    [clojure.tools [logging :as log]])
+   [clojure.tools [logging :as log]])
   (:import
-    net.grinder.common.GrinderBuild
-    org.slf4j.LoggerFactory
-    net.grinder.console.ConsoleFoundation))
+   java.util.Locale                     ; for Translations
+   net.grinder.console.common.ResourcesImplementation
+   org.slf4j.LoggerFactory
+   net.grinder.translation.impl.TranslationsSource
+   net.grinder.console.ConsoleFoundation))
 
 (defonce ^:private stopper (atom nil))
 
@@ -34,13 +36,19 @@
   (let [s @stopper]
     (if s (s))))
 
-(defn start
-  []
+;; Execute this and point your browser to http://localhost:6373/ui ...
+(defn start []
   (stop)
-  (let [resources (net.grinder.console.common.ResourcesImplementation.
-                    ConsoleFoundation/RESOURCE_BUNDLE)
+  ;; See main() in Console.java for a reference startup sequence ...
+  (let [resources (ResourcesImplementation. ConsoleFoundation/RESOURCE_BUNDLE)
         logger (LoggerFactory/getLogger "test")
-        cf (net.grinder.console.ConsoleFoundation. resources logger true)]
+        headless true
+        translations (-> (TranslationsSource.)
+                         (.getTranslations (Locale/getDefault)))
+        cf (ConsoleFoundation. resources
+                               translations
+                               logger
+                               headless)]
     (reset! stopper
             (fn []
               (.shutdown cf)
