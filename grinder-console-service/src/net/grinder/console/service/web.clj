@@ -435,12 +435,14 @@
           (ringutil/json-response
             (recording/zero sample-model))))
 
+      ;; The resource file "about.html" which is slurped here comes
+      ;; from grinder-translations ...
       (->
-        (GET "/" []
-          (page (content :about
-                  (if-let [r (t :console.dialog/about.text)]
-                    (slurp (clojure.java.io/resource r))))))
-        wrap-tower-middleware)
+       (GET "/" []
+            (page (content :about
+                           (if-let [r (t :console.dialog/about.text)]
+                             (slurp (clojure.java.io/resource r))))))
+       wrap-tower-middleware)
 
       (ANY "*" [] (redirect (rr "/"))))
 
