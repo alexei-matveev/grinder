@@ -526,6 +526,8 @@ jQuery(function($) {
             // TODO: Requires translation.
             d.html(s.description);
 
+            // s.state is "WaitingForFirstReport" initially, the
+            // summary tooltip does not fade away:
             if (s.state != data_state) {
                 if (s.state === "Stopped") {
                     d.parent().stop().animate({opacity: 0}, "slow");

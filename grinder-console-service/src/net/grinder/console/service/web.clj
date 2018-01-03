@@ -75,6 +75,7 @@
          d)])))
 
 
+;; Process summary is a tooltip for the Process Control button:
 (defn render-process-summary []
   (html [:div {:id :process-summary}]))
 
@@ -289,6 +290,8 @@
     (properties/set-properties p expanded)))
 
 
+;; Data summary is a tooltip for the Data button. "Waiting for
+;; samples" is what you will likely see there first.
 (defn render-data-summary []
   (html [:div {:id :data-summary}]))
 
