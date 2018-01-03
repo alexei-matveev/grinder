@@ -45,7 +45,7 @@
 (defn start []
   ;; This should be idempotent:
   (stop)
-  ;; See main() in Console.java for a reference startup sequence ...
+  ;; See main() in Console.java for the reference startup sequence ...
   (let [resources (ResourcesImplementation. ConsoleFoundation/RESOURCE_BUNDLE)
         logger (LoggerFactory/getLogger "test")
         headless true
