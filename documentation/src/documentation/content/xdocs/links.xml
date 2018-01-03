@@ -16,7 +16,20 @@
 
     <tr>
       <td>
-        <a href="https://bitbucket.org/travis_bear/grinder_to_graphite">Grinder to Graphite</a>
+        <a href="http://www.cubrid.org/wiki_ngrinder/entry/groovy-script">Another Groovy script engine</a>
+      </td>
+
+      <td></td>
+
+      <td>
+        A second Groovy script engine from the <a href="ext:ngrinder">nGrinder</a> team.
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <a href="http://grinder-to-graphite.readthedocs.org/en/latest/">Grinder to Graphite</a>
       </td>
 
       <td></td>
@@ -25,12 +38,16 @@
         Grinder to Graphite (g2g) is a tool that analyzes the logs
         from your Grinder tests, and sends the data into Graphite
         where it can be visualized in a variety of ways.
+
+        <figure src="http://grinder-to-graphite.readthedocs.org/en/latest/_images/all_tps_stacked.png" alt="xg2g"
+              width="560" height="360" />
       </td>
     </tr>
     
     <tr>
       <td>
-        <a href="https://github.com/DealerDotCom/grinder-groovy">grinder-groovy</a>
+        <a
+        href="https://github.com/DealerDotCom/grinder-groovy">grinder-groovy</a>
       </td>
 
       <td></td>
@@ -431,6 +448,29 @@
   If you have a product or service related to The Grinder and would
   like to add information to this page, please email details to <a
   href="ext:mail/grinder-use">grinder-use</a>.</p>
+
+  <section id="synoty">
+    <title>Synoty</title>
+
+    <p>Performance has become a critical part of product development
+    these days. The need for speed is here, users expect faster and
+    responsive applications. At Synoty we realized a consolidated
+    performance service which enables our customers to provide great
+    applications to their users is needed.</p>
+
+    <p>Synoty is an application performance consulting service with a
+    difference. Our service provides our customers with cloud based or
+    inside firewall load and performance testing, user experience
+    testing and performance engineering such as application code,
+    database and operating system performance analysis and tuning.</p>
+
+    <p>We also included tools and software needed for performance
+    analysis and an amazing performance portal to bring it all in one
+    place. The Grinder is our load generator in the cloud.</p>
+
+    <p>To learn how we can help you with performance please visit us
+    at <a href="http://www.synoty.com">www.synoty.com</a>.</p>
+  </section>
 
   <section id="perfmetrix">
     <title>Perfmetrix</title>
