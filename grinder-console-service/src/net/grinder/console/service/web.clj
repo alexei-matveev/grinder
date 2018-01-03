@@ -338,8 +338,9 @@
 
       [:div {:id :content} body]]))
 
-(defn- context-url [p]
+(defn- UNUSED-context-url
   "Force hiccup to add its base-url to the given path"
+  [p]
   (to-str (to-uri p)))
 
 (defn create-app
