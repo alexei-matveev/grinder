@@ -9,8 +9,7 @@ uberjar build. Will hopefully remain a thin wrapper.
     lein run Grinder
 
 The Clojure code merely invokes Java classes, either
-[Console](../grinder-core/src/main/java/net/grinder/Console.java)
-or
+[Console](../grinder-core/src/main/java/net/grinder/Console.java) or
 [Grinder](../grinder-core/src/main/java/net/grinder/Grinder.java).
 
 Console needs to be able to listen to a few ports. The Console listens
@@ -25,9 +24,9 @@ is, BTW, also a Clojue [subproject](../grinder-console-service).
 
 By default the Grinder Console starts the Swing UI.
 
-On  a headless  Linux VM  `lein  run Console`  shows exception  saying
-DISPLAY is  not set while  `lein -jar ${uber}.jar Console`  appears to
-start  the console  (rest)  service as  if  one specified  `-headless`
+On a headless Linux VM `lein run Console` shows exception saying
+DISPLAY is not set while `lein -jar ${uber}.jar Console` appears to
+start the console (rest) service as if one specified `-headless`
 option. Same behaviour is observed if you launch the
 [class](../grinder-core/src/main/java/net/grinder/Console.java)
 directly:
@@ -42,10 +41,10 @@ or like this
 
     java -classpath $(lein classpath) grinder_clj.core Console
 
-The  Console would  (try  to)  launch the  Swing  UI.   There is  some
-non-trivial logic  of
+The Console would (try to) launch the Swing UI.  There is some
+non-trivial logic of
 [ConsoleFoundation](../grinder-core/src/main/java/net/grinder/console/ConsoleFoundation.java)
-that  "dynamically" loads UI versions and if nothing works falls back
+that "dynamically" loads UI versions and if nothing works falls back
 to TextUI.
 
 This logic appears to consult the class name in the Java resource
