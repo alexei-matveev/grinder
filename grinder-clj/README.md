@@ -3,7 +3,8 @@
 Leiningen project to handle The Grinder build, class path, and
 uberjar build. Will hopefully remain a thin wrapper.
 
-See also a [Mavenized
+See [examples](https://github.com/locopati/load-testing-with-clojure)
+of the Clojure scripts for the Grinder.  See also a [Mavenized
 Grinder](https://github.com/gradeawarrior/mavenized-grinder).
 
 ## Usage
