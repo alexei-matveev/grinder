@@ -2,24 +2,23 @@
 ;; Instrumenting HTTP with The Grinder
 ;;
 (ns grinder-clj.example
-  (:import [net.grinder.script Grinder Test]
-           [net.grinder.plugin.http HTTPRequest]))
+  (:import [net.grinder.script Grinder Test]))
 
 (let [grinder Grinder/grinder
-      test (Test. 1 "HTTP Instrumented")]
+      test (Test. 1 "Plain instrumented")]
 
   (defn log [& text]
     (.. grinder (getLogger) (info (apply str text))))
 
   ;; Function that we can record
-  (defn instrumented-get [url]
-    (.. (HTTPRequest.) (GET url)))
+  (defn instrumented-fn [url]
+    (log "instrumented-fn: entered"))
 
   ;; Record calls to the instrumented function
-  (.. test (record instrumented-get))
+  (.. test (record instrumented-fn))
 
-  ;; Script returns a factroy function ...
+  ;; Script returns a factory function ...
   (fn []
     ;; ... that itself returns a test function:
     (fn []
-      (instrumented-get "http://localhost:6373/version"))))
+      (instrumented-fn "http://localhost:6373/version"))))
