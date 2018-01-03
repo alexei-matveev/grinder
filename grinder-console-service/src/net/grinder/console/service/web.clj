@@ -55,13 +55,13 @@
 (defmulti render-process-state #(first %&))
 
 (defmethod render-process-state :agent [_ p]
-    (let [s (:state p)
+  (let [s (:state p)
         d (t (condp = s
                :started :console.state/started
                :running :console.state/running-agent
                :finished :console.state/finished-agent))]
     (html
-      [:div {:class s} d])))
+     [:div {:class s} d])))
 
 (defmethod render-process-state :worker [_ p]
   (let [s (:state p)
