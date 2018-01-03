@@ -36,7 +36,10 @@
   (let [s @stopper]
     (if s (s))))
 
-;; Execute this and point your browser to http://localhost:6373/ui ...
+;; Execute (start) and point  your browser to http://localhost:6373/ui
+;; or to http://localhost:6373/version to  verify. The run() method of
+;; the  ConsoleFoundation  does  not  return anything,  so  the  value
+;; computed by the future is not very usefull.
 (defn start []
   (stop)
   ;; See main() in Console.java for a reference startup sequence ...
