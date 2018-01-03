@@ -3,6 +3,9 @@
 Leiningen project to handle The Grinder build, class path, and
 uberjar build. Will hopefully remain a thin wrapper.
 
+See also a [Mavenized
+Grinder](https://github.com/gradeawarrior/mavenized-grinder).
+
 ## Usage
 
     lein run Console [-headless]
