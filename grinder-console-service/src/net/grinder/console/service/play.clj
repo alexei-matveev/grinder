@@ -32,15 +32,18 @@
 
 (defonce ^:private stopper (atom nil))
 
+;; Stopper function happens to also reset the atom to nil again. See
+;; below where it is constructed ...
 (defn stop []
-  (let [s @stopper]
-    (if s (s))))
+  (if-let [stopper-fn @stopper]
+    (stopper-fn)))
 
 ;; Execute (start) and point  your browser to http://localhost:6373/ui
 ;; or to http://localhost:6373/version to  verify. The run() method of
 ;; the  ConsoleFoundation  does  not  return anything,  so  the  value
 ;; computed by the future is not very usefull.
 (defn start []
+  ;; This should be idempotent:
   (stop)
   ;; See main() in Console.java for a reference startup sequence ...
   (let [resources (ResourcesImplementation. ConsoleFoundation/RESOURCE_BUNDLE)
@@ -55,6 +58,7 @@
     (reset! stopper
             (fn []
               (.shutdown cf)
+              ;; Should we rather reset the atom in "stop"?
               (reset! stopper nil)))
     (future
       (try
