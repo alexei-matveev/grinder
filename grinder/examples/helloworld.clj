@@ -6,8 +6,6 @@
   ; The script returns a factory function, called once by each worker
   ; thread.
   (fn []
-
     ; The factory function returns test runner function.
-    (fn []	
-      (do
-        (.. grinder (getLogger) (info "Hello World"))))))
+    (fn []
+      (.. grinder (getLogger) (info "Hello World")))))
