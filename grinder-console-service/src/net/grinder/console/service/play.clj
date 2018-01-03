@@ -19,16 +19,21 @@
 ; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ; OF THE POSSIBILITY OF SUCH DAMAGE.
 
+;;
+;; This file is for convenience of  Emacs & Cider workflows.  The file
+;; is not required of the Web Console itself as the "play" in the name
+;; suggests.
+;;
 (ns net.grinder.console.service.play
   "Start and stop the console from the REPL."
   (:require
    [clojure.tools [logging :as log]])
   (:import
-   java.util.Locale                     ; for Translations
+   java.util.Locale                     ; Locale/getDefault
+   org.slf4j.LoggerFactory              ; LoggerFactory/getLogger
    net.grinder.console.common.ResourcesImplementation
-   org.slf4j.LoggerFactory
-   net.grinder.translation.impl.TranslationsSource
-   net.grinder.console.ConsoleFoundation))
+   net.grinder.console.ConsoleFoundation
+   net.grinder.translation.impl.TranslationsSource))
 
 (defonce ^:private stopper (atom nil))
 
