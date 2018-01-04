@@ -6,9 +6,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [net.sf.grinder/grinder "3.12-SNAPSHOT"
                   :exclusions [org.clojure/tools.macro]]
-                 [org.clojure/tools.macro "0.1.5"]
-                 ;; For test scripts:
-                 [clj-http "3.7.0"]]
+                 [org.clojure/tools.macro "0.1.5"]]
   :main grinder-clj.core
   ;; Implicit AOT of main is deprecated:
   :aot [grinder-clj.core]
