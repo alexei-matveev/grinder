@@ -1,1 +1,0 @@
-../grinder/examples/helloworld.clj

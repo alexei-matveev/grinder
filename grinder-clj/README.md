@@ -3,8 +3,7 @@
 Leiningen project to handle The Grinder build, class path, and
 uberjar build. Will hopefully remain a thin wrapper.
 
-See [examples](https://github.com/locopati/load-testing-with-clojure)
-of the Clojure scripts for the Grinder.  See also a
+See also a
 [Mavenized Grinder](https://github.com/gradeawarrior/mavenized-grinder).
 
 ## Usage
@@ -16,12 +15,21 @@ The Clojure code merely invokes Java classes, either
 [Console](../grinder-core/src/main/java/net/grinder/Console.java) or
 [Grinder](../grinder-core/src/main/java/net/grinder/Grinder.java).
 
-Console needs to be able to listen to a few ports. The Console listens
-by default to 0.0.0.0:6372, this is where the agents will need to
+See [scripts](../grinder/examples) distributed with the Grinder and
+some Clojure specific
+[examples](https://github.com/locopati/load-testing-with-clojure).
+
+Console needs to be able to listen to a few ports. The Console binds
+to all available addresses,
+[IPv4 and IPv6](https://superuser.com/questions/661188/what-is-in-the-local-address-of-netstat-output),
+at `:::6372`.  This is where the agents will need to
 [connect to](http://grinder.sourceforge.net/g3/getting-started.html). At
-:6373 there is a REST endpoint of the
+`:::6373` there is a REST endpoint of the
 [Console service](http://grinder.sourceforge.net/g3/console-service.html)
 which is, BTW, also a Clojue [subproject](../grinder-console-service).
+To access the Web UI point your browser to
+
+    http://localhost:6373/ui
 
 ## Building an Uberjar
 
