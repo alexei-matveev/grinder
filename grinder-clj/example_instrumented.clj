@@ -6,24 +6,28 @@
   (:require [org.httpkit.client :as http])
   (:import [net.grinder.script Grinder Test]))
 
-(let [grinder Grinder/grinder
-      test (Test. 1 "Plain instrumented")]
+;; What about [net.grinder.plugin.http HTTPRequest]?
 
-  (defn log [& text]
-    (.. grinder (getLogger) (info (apply str text))))
+(defn log [& text]
+  (-> Grinder/grinder
+      (.getLogger)
+      (.info (apply str text))))
 
-  ;; Function that we can "record":
-  (defn instrumented-fn [url]
-    ;; Deref is needed for http-kit, no deref for clj-http. Body is an
-    ;; http-kit specific InputStream.
-    (let [req @(http/get url)]
-      (log "body: " (slurp (:body req)))))
+;; Function that we can "record":
+(defn instrumented-fn [url]
+  ;; Deref is needed  for http-kit, no deref for clj-http.  Body is an
+  ;; http-kit specific InputStream.
+  (let [req @(http/get url)]
+    (log "body: " (slurp (:body req)))))
 
-  ;; "Record" calls to the instrumented function
-  (.. test (record instrumented-fn))
+;; What about (.. (HTTPRequest.) (GET url))?
 
-  ;; Script returns a factory function ...
+;; "Record" calls to the instrumented function
+(-> (Test. 1 "Plain instrumented")
+    (.record instrumented-fn))
+
+;; Script returns a factory function ...
+(fn []
+  ;; ... that itself returns a test function:
   (fn []
-    ;; ... that itself returns a test function:
-    (fn []
-      (instrumented-fn "http://localhost:6373/version"))))
+    (instrumented-fn "http://localhost:6373/version")))
